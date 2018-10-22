@@ -31,6 +31,7 @@ private:
 	string postfixExpression; // keeps a postfix representation of the arithmetic expression
 	string infixExpression; // keeps an infix representation of the arithmetic expression
 	int operate(string,int,int);
+	bool hasHigherPrecedence(string,StackItem*);
 };
 
 #endif
