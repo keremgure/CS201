@@ -11,6 +11,7 @@
 #ifndef __BINARYHEAP__
 #define __BINARYHEAP__
 #include <iostream>
+#include <climits>
 using namespace std;
 
 class BinaryHeap {

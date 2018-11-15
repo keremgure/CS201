@@ -42,7 +42,6 @@ void TestBed::execute() {
 
 
 TestBed::~TestBed(){
-	//algorithm->~SelectionAlgorithm();
 	delete algorithm;
 	algorithm = nullptr;
 }
