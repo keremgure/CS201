@@ -1,0 +1,17 @@
+#include "SelectionAlgorithm.h"
+#include "AlgorithmSortAll.h"
+#include "AlgorithmSortK.h"
+#include "AlgorithmSortHeap.h"
+#include "AlgorithmSortQuick.h"
+
+#include <ctime>
+
+class TestBed{
+public:
+	TestBed();
+	~TestBed();
+	void execute();
+private:
+	SelectionAlgorithm *algorithm;
+	void setAlgorithm(int);
+};
