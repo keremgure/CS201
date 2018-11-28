@@ -58,9 +58,9 @@ int BinaryHeap::getMin() {
 }
 
 void BinaryHeap::percolateDown(int hole) {
-    if(hole*2 < size && heap[hole*2] >= 0){
+    if(hole*2 <= size && heap[hole*2] >= 0){
         int leftChild = heap[hole*2];
-        int rightChild = (hole*2 <= size && (heap[hole*2+1] >= 0)) ? heap[hole*2+1] : INT_MAX;
+        int rightChild = ((hole*2+1 <= size) && (heap[hole*2+1] >= 0)) ? heap[hole*2+1] : INT_MAX;
         int swapIndex = (leftChild >= rightChild) ? hole*2+1 : hole*2;
         if(heap[hole] > heap[swapIndex]) {
             swap(hole, swapIndex);
