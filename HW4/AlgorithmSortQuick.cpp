@@ -14,34 +14,27 @@ int AlgorithmSortQuick::select() {
         cin >> arr[m];
     return quickselect(arr,0,N-1,k);
 }
+
 int AlgorithmSortQuick::quickselect(int * arr,int left, int right, int k) {
     if(left + 10 <= right){
         int pivot = median(arr,left,right);
-
         int i = left;
         int j = right - 1;
-        for(;;){
-            while(arr[++i] < pivot) {}
-            while (pivot < arr[--j]) {}
+
+        while(true){
+            for(;arr[++i] < pivot;);
+            for(;pivot < arr[--j];);
             if(i<j)
                 swap(arr[i],arr[j]);
             else break;
         }
-        swap(arr[i],arr[right-1]);
-
-        if(k <= i-1)
-            return quickselect(arr,left, i-1,k);
-        else if (k == i)
-            return pivot;
-        else quickselect(arr, i+1,right,k);
-    }
-    else {
+        swap(arr[i],arr[right-1]); //restore the pivot.
+        return (k <= i-1) ? quickselect(arr,left,i-1,k) : ((k==1) ? pivot : quickselect(arr,i+1,right ,k));
+    }else
         insertionSort(arr, left, right);
-    }
     return arr[k];
 
 }
-
 
 int AlgorithmSortQuick::median(int * arr, int left, int right) {
     int center = (left + right) / 2;
@@ -54,8 +47,6 @@ int AlgorithmSortQuick::median(int * arr, int left, int right) {
 
     swap(arr[center],arr[right-1]);
     return arr[right-1];
-//    return arr[center];
-
 }
 
 void AlgorithmSortQuick::insertionSort(int *arr, int left, int right) {
